@@ -1,0 +1,805 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A simple, clean, and responsive HTML invoice template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    .invoice-box {
+        max-width: 800px;
+        margin: auto;
+        padding: 50px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+    }
+    .div-centered {
+        display: inline-block;
+        width: 100%;
+        vertical-align: middle;
+        line-height: 100px;
+        text-align: center;
+    }
+    .vh-lg {
+        line-height: 100px;
+    }
+    .vh-md {
+        line-height: 40px;
+    }
+    .vh-sm {
+        line-height: 15px;
+    }
+    .top-border {
+        border-top: 3px;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+        border-style: solid;
+        border-color: #D3D3D3;
+    }
+    
+    .top-right-bottom-border {
+        border-top: 1.5px;
+        border-left: 0;
+        border-right: 1.5px;
+        border-bottom: 1.5px;
+        border-style: solid;
+        border-color: #D3D3D3;   
+    }
+    .right-border {
+        border-top: 0;
+        border-left: 0;
+        border-right: 1.5px;
+        border-bottom: 0;
+        border-style: solid;
+        border-color: #D3D3D3;   
+    }
+    .top-bottom-border {
+        border-top: 1.5px;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 1.5px;
+        border-style: solid;
+        border-color: #D3D3D3;   
+    }
+    .right-bottom-heavy-border {
+        border-top: 0;
+        border-left: 0;
+        border-right: 1.5px;
+        border-bottom: 6px;
+        border-style: solid;
+        border-color: #D3D3D3;
+    }
+    .left-right-bottom-heavy-border {
+        border-top: 0;
+        border-left: 1.5px;
+        border-right: 1.5px;
+        border-bottom: 6px;
+        border-style: solid;
+        border-color: #D3D3D3;
+    }
+    .bottom-heavy-border {
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 6px;
+        border-style: solid;
+        border-color: #D3D3D3;   
+    }
+    .right-bottom-border {
+        border-top: 0;
+        border-left: 0;
+        border-right: 1.5px;
+        border-bottom: 1.5px;
+        border-style: solid;
+        border-color: #D3D3D3;
+    }
+    .bottom-border {
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 1.5px;
+        border-style: solid;
+        border-color: #D3D3D3;        
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .invoice-box table tr.top table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        
+        .invoice-box table tr.information table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+    }
+    
+    /** RTL **/
+    .rtl {
+        direction: rtl;
+        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+    
+    .rtl table {
+        text-align: right;
+    }
+    
+    .rtl table tr td:nth-child(2) {
+        text-align: left;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-box container">
+
+        <!-- This row is for the logo and VAT INVOICE -->
+        <div class="row " style="">
+            <img src="logo.png" style="height: 32px;">
+            <h5 style="float: right; margin-left: auto;"><strong>VAT INVOICE</strong></h5>
+        </div>
+
+        <br/>
+        <!-- This row is for date and invoice number -->
+        <div class="row" style="background-color: ;">
+            <div class="col-5" style="padding: 0px;">
+                <table class="" style="width: 100%; table-layout: fixed;">
+                    <thead>
+
+                    </thead>
+                    
+                    <tbody>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Date:</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">2020-09-01</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5" style="padding: 0px;">
+                <table class="" style="width: 100%; table-layout: fixed;">
+                    <thead>
+
+                    </thead>
+                    
+                    <tbody>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Invoice number:</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">Series: PF Nr. 20840</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- This row is SELLER/BUYER tables -->
+        <br/><br/>
+        <div class="row" style="background-color: ;">
+            <div class="col-5" style="padding: 0px;">
+                <table class="" style="width: 100%; table-layout: fixed;">
+                    <thead>
+                        <tr class="d-flex">
+                            <th style="width: 30%;"></th>
+                            <th style="width: 70%; color: #F96209; font-size: 12px;">SELLER</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr class="d-flex">
+                            <td class="top-border" style="width: 30%; font-size: 10px; font-style: italic;">Company name</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;"><strong>PPF Foil, UAB</strong></td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Address</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">Vilkpėdės g. 22,<br/>
+                            LT-03151, Vilnius</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Company Code</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">302676119</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">VAT Code</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">LT100006434117</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Phone number</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">(+370) 5 203 1222</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Bank account №</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">LT757044060007736244</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">SWIFT</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">CBVILT2X</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Bank name</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">AB SEB bank, Bank code: 70440</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <table class="" style="width: 100%; table-layout: fixed;">
+                    <thead>
+
+                    </thead>
+                    
+                    <tbody>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">PPF Reg. Nr.:</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">Nr.: ZAM_WEWN_30369</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5" style="padding: 0px;">
+                <table class="" style="width: 100%; table-layout: fixed;">
+                    <thead>
+                        <tr class="d-flex">
+                            <th style="width: 30%;"></th>
+                            <th style="width: 70%; color: #F96209; font-size: 12px;">BUYER</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr class="d-flex">
+                            <td class="top-border" style="width: 30%; font-size: 10px; font-style: italic;">Company name</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;"><strong>UAB “Xxxxxxxx”</strong></td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Address</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">Salomėjos Nėries g. 00<br/>
+                            LT- 00000, Vilnius</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Company Code</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">111111111</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">VAT Code</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">LT222227777</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Phone number</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">(+370) 5 000 00 00</td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Bank account №</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;"></td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">SWIFT</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;"></td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Bank name</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <table class="" style="width: 100%; table-layout: fixed;">
+                    <thead>
+
+                    </thead>
+                    
+                    <tbody>
+                        <tr class="d-flex">
+                            <td style="width: 30%; font-size: 10px; font-style: italic;">Purchase order №</td>
+                            <td style="width: 70%; font-size: 10px; background-color: #D3D3D3;">14141624-EU 2014-07-31</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>        
+    
+    </div>
+
+    <!-- This is DESCRIPTION OF GOODS Table -->
+    <br/><br/>
+    <div class="row" style="background-color: ;">
+            <div class="col-12" style="padding: 0px;">
+                <table class="" style="width: 100%; table-layout: fixed;">
+                    <thead>
+                        <tr class="d-flex" style="text-align: center">
+                            <th class="top-right-bottom-border" style="width: 25%; font-size: 9px;">
+                                <div class="div-centered vh-md">
+                                    <div style="line-height: 10px;">
+                                        DESCRIPTION OF GOODS
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="top-right-bottom-border" style="width: 10%; font-size: 9px;">
+                                <div class="div-centered vh-md">
+                                    <div style="line-height: 10px;">
+                                        CORE
+                                        <br/>
+                                        <span style="color: #F96209;">in</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="top-right-bottom-border" style="width: 10%; font-size: 9px;">
+                                <div class="div-centered vh-md">
+                                    <div style="line-height: 10px;">
+                                        WIDTH
+                                        <br/>
+                                        <span style="color: #F96209;">m</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="top-right-bottom-border" style="width: 10%; font-size: 9px;">
+                                <div class="div-centered vh-md">
+                                    <div style="line-height: 10px;">
+                                        LENGTH
+                                        <br/>
+                                        <span style="color: #F96209;">m</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="top-right-bottom-border" style="width: 10%; font-size: 9px;">
+                                <div class="div-centered vh-md">
+                                    <div style="line-height: 10px;">
+                                        QUANTITY OF ROLLS
+                                        <br/>
+                                        <span style="color: #F96209;">psc.</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="top-right-bottom-border" style="width: 10%; font-size: 9px;">
+                                <div class="div-centered vh-md">
+                                    <div style="line-height: 10px;">
+                                        AREA
+                                        <br/>
+                                        <span style="color: #F96209;">m<sup>2</sup></span>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="top-right-bottom-border" style="width: 10%; font-size: 9px;">
+                                <div class="div-centered vh-md">
+                                    <div style="line-height: 10px;">
+                                        Price EUR w/o VAT
+                                        <br/>
+                                        <span style="color: #F96209;">EUR</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="top-bottom-border" style="width: 15%; font-size: 9px;">
+                                <div class="div-centered vh-md">
+                                    <div style="line-height: 10px;">
+                                        Amount w/ow VAT
+                                        <br/>
+                                        <span style="color: #F96209;">EUR</span>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr class="d-flex">
+                            <td class="right-bottom-heavy-border" style="width: 25%;">
+                                <div class="div-centered vh-lg">
+                                    <img src = "1.png" style="width: 70px;">
+                                </div>
+                            </td>
+                            <td class="right-bottom-heavy-border" style="width: 10%;">
+                                <div class="div-centered vh-lg">
+                                    <img src = "2.png" style="width: 70px;">
+                                </div>
+                            </td>
+                            <td class="right-bottom-heavy-border" style="width: 10%;">
+                                <div class="div-centered vh-lg">
+                                    <img src = "3.png" style="width: 70px;">
+                                </div>
+                            </td>
+                            <td class="right-bottom-heavy-border" style="width: 10%;">
+                                <div class="div-centered vh-lg">
+                                    <img src = "4.png" style="width: 68px;">
+                                </div>
+                            </td>
+                            <td class="right-bottom-heavy-border" style="width: 10%;">
+                                <div class="div-centered vh-lg">
+                                    <img src = "5.png" style="width: 70px;">
+                                </div>
+                            </td>
+                            <td class="right-bottom-heavy-border" style="width: 10%;">
+                                <div class="div-centered vh-lg">
+                                    <img src = "6.png" style="width: 70px;">
+                                </div>
+                            </td>
+                            <td class="right-bottom-heavy-border" style="width: 10%;">
+                                <div class="div-centered vh-lg">
+                                    <img src = "7.png" style="width: 70px;">
+                                </div>
+                            </td>
+                            <td class="bottom-heavy-border" style="width: 15%;">
+                                <div class="div-centered vh-lg">
+                                    <img src = "8.png" style="width: 70px;">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td class="right-bottom-border" style="font-size: 12px; width: 25%;">
+                                Folija Gold GSN 22-0
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    1
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    0,190
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    610
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    3
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    347,70
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    1,00
+                                </div>
+                            </td>
+                            <td class="bottom-border" style="font-size: 12px; width: 15%;">
+                                <div class="div-centered vh-sm">
+                                    <span style="float: right;">
+                                        3,00
+                                    </span>
+                                </div>
+                            </td>                           
+                        </tr>
+                        <tr class="d-flex">
+                            <td class="right-bottom-border" style="font-size: 12px; width: 25%;">
+                                Folija Gold GSN 22-0
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    1
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    0,190
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    610
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    3
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    347,70
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    2,00
+                                </div>
+                            </td>
+                            <td class="bottom-border" style="font-size: 12px; width: 15%;">
+                                <div class="div-centered vh-sm">
+                                    <span style="float: right;">
+                                        6,00
+                                    </span>
+                                </div>
+                            </td>                           
+                        </tr>
+                         <tr class="d-flex">
+                            <td class="right-bottom-border" style="font-size: 12px; width: 25%;">
+                                Folija Gold GSN 22-0
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    1
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    0,190
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    610
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    3
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    347,70
+                                </div>
+                            </td>
+                            <td class="right-bottom-border" style="font-size: 12px; width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    3,00
+                                </div>
+                            </td>
+                            <td class="bottom-border" style="font-size: 12px; width: 15%;">
+                                <div class="div-centered vh-sm">
+                                    <span style="float: right;">
+                                        9,00
+                                    </span>
+                                </div>
+                            </td>                           
+                        </tr>                       
+                        <tr class="d-flex">
+                            <td style="width: 55%; float: right; border: 0;">
+                                
+                            </td>
+                            <td class="right-border" style="width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    <strong>
+                                        VISO:
+                                    </strong>
+                                </div>
+                            </td>
+                            <td class="right-bottom-heavy-border" style="width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    <strong>
+                                        1043,10
+                                    </strong>
+                                </div>
+                            </td>
+                            <td class="right-bottom-heavy-border" style="width: 10%;">
+
+                            </td>
+                            <td class="bottom-heavy-border" style="width: 15%;">
+                                <div class="div-centered vh-sm">
+                                    <strong>
+                                        <span style="float: right;">
+                                            18,00
+                                        </span>
+                                    </strong>
+                                </div>
+                            </td>
+                            </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="width: 75%;">
+                                <div class="div-centered vh-sm">
+                                    <strong>
+                                        <span style="float: right; font-size: 12px;">
+                                            (“Directive 2006/112/EC 141 art..” VAT 0%)
+                                        </span>
+                                    </strong>
+                                </div>
+                            </td>
+                            <td class="right-border" style="width: 10%;">
+                                <div class="div-centered vh-sm">
+                                    <strong>
+                                        <span style="float: right;">
+                                            VAT 0%:
+                                        </span>
+                                    </strong>
+                                </div>
+                            </td>
+                            <td style="width: 15%;">
+                                <div class="div-centered vh-sm">
+                                    <strong>
+                                        <span style="float: right;">
+                                            3,78
+                                        </span>
+                                    </strong>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td class="right-border" style="width: 85%;">
+                                <div class="div-centered vh-sm">
+                                    <strong>
+                                        <span style="float: right;">
+                                            TOTAL (EUR with VAT):
+                                        </span>
+                                    </strong>
+                                </div>
+                            </td>
+                            <td style="width: 15%;">
+                                <div class="div-centered vh-sm">
+                                    <strong>
+                                        <span style="float: right;">
+                                            21,78
+                                        </span>
+                                    </strong>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+            </div>       
+    
+    </div>
+
+    <!-- This is for the Amount in words:-->
+    <div class="row" style="background-color: ;">
+        <div class="col-12" style="padding: 0px;">
+            <table class="" style="width: 100%; table-layout: fixed;">
+                <thead>
+
+                </thead>
+                    
+                <tbody>
+                    <tr class="d-flex">
+                        <td style="width: 15%; font-size: 11px; font-style: italic;">
+                            Amount in words:
+                        </td>
+                        <td style="width: 85%; font-size: 11px; background-color: #D3D3D3;">
+                            Vienas šimtas aštuoniasdešimt trys eurai 1 EURO ct
+                        </td>
+                        </tr>
+                </tbody>
+            </table>
+            <br/><br/>
+            <table class="" style="width: 100%; table-layout: fixed;">
+                <thead>
+
+                </thead>
+                    
+                <tbody>
+                    <tr class="d-flex">
+                        <td style="width: 15%; font-size: 11px; font-style: italic;">
+                            <div class="div-centered vh-md">
+                                <span style="float:left;">
+                                    Payment conditions:
+                                </span>
+                            </div>
+                        </td>
+                        <td style="width: 85%; font-size: 11px; background-color: #D3D3D3;">
+                            <strong>Due Date: 2020 m. October 20 d.</strong><br/>In case of payment delays, it will be a subject to 0,05% interest for each day of delay
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table class="" style="width: 100%; table-layout: fixed; margin-top: 5px;">
+                <thead>
+
+                </thead>
+                    
+                <tbody>
+                    <tr class="d-flex">
+                        <td style="width: 15%; font-size: 11px; font-style: italic;">
+                            <div class="div-centered vh-md">
+                                <span style="float:left;">
+                                    Claim Submission:
+                                </span>
+                            </div>
+                        </td>
+                        <td style="width: 85%; font-size: 11px; background-color: #D3D3D3;">
+                            <div class="div-centered vh-md">
+                                <span style="float: left;">
+                                    All claims must be submitted within 30 days from delivery date of GOODS
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <table class="" style="width: 100%; table-layout: fixed; margin-top: 5px;">
+                <thead>
+
+                </thead>
+                    
+                <tbody>
+                    <tr class="d-flex">
+                        <td style="width: 15%; font-size: 11px; font-style: italic;">
+                            <div class="div-centered vh-lg">
+                                <span style="float:left;">
+                                    Note:
+                                </span>
+                            </div>
+                        </td>
+                        <td style="width: 85%; font-size: 11px; background-color: #D3D3D3;">
+                            <div class="div-centered vh-md">
+                                <span style="float: left;">
+
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <table class="" style="width: 100%; table-layout: fixed; margin-top: 5px;">
+                <thead>
+
+                </thead>
+                    
+                <tbody>
+                    <tr class="d-flex">
+                        <td style="width: 15%; font-size: 11px; font-style: italic;">
+                            <div class="div-centered vh-lg">
+                                <span style="float:left;">
+                                    
+                                </span>
+                            </div>
+                        </td>
+                        <td style="width: 85%; font-size: 11px; ">
+                            <div class="div-centered vh-md">
+                                <span style="float: left; color: #F96209; font-size: 16px;">
+                                    <strong>
+                                        Thank you for your timely payment. It is very important to us.
+                                    </strong>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <br/>
+        </div>
+    </div>
+
+
+    <!-- This is the last row -->
+
+    <div class="row" style="background-color: ;">
+        <div class="col-5" style="padding: 0px;">
+            <hr style="margin-bottom: 0px;">
+            <p style="text-align: center; font-size: 10px; font-style: italic;">Seller:</p>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5" style="padding: 0px;">
+            <hr style="margin-bottom: 0px;">
+            <p style="text-align: center; font-size: 10px; font-style: italic;">Buyer (Confirms, that all goods have been received):</p>
+        </div>
+    </div>
+    
+    <div class="row" style="background-color: ;">
+        <div class="col-3" style="padding: 0px;">
+            <hr style="margin-bottom: 0px; margin-right: 10px;">
+            <p style="text-align: center; font-size: 10px; font-style: italic;">Name Surname</p>
+        </div>
+        <div class="col-2" style="padding: 0px;">
+            <hr style="margin-bottom: 0px; margin-left: 10px;">
+            <p style="text-align: center; font-size: 10px; font-style: italic;">Signature</p>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-3" style="padding: 0px;">
+            <hr style="margin-bottom: 0px; margin-right: 10px;">
+            <p style="text-align: center; font-size: 10px; font-style: italic;">Name Surname</p>
+        </div>
+        <div class="col-2" style="padding: 0px;">
+            <hr style="margin-bottom: 0px; margin-left: 10px;">
+            <p style="text-align: center; font-size: 10px; font-style: italic;">Signature</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
